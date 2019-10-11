@@ -1,13 +1,14 @@
 import React from 'react'
-import { PhotoGridWrapper } from './styles/photoGridStyles'
-
+import Photo from './photo'
 
 class PhotoGrid extends React.Component {
-  render() {
+  render () {
     return (
-      <PhotoGridWrapper>
-        I'm the photo grid Component
-      </PhotoGridWrapper>
+      <div className='photo-grid'>
+        {this.props.posts.map((post, idx) => {
+          return <Photo {...this.props} key={idx} index={idx} post={post} />
+        })}
+      </div>
     )
   }
 }
